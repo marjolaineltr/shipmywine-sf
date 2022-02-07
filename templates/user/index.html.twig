@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+ {% block title %}Votre profil{% endblock %}
+
+
+{% block body %}
+
+
+<div id="profile">
+    <h3 class="text-center text-black-50 pt-5">Bienvenue sur votre profil !</h3>
+    <div class="container">
+        <div id="profile-row" class="row justify-content-center align-items-center">
+            <div id="profile-column" class="col-md-10">
+                <div id="profile-box" class="col-md-12">
+                    <h5 class="card-header bg-light text-black">
+                        Informations de {{ app.user.firstname }} {{ app.user.lastname }}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div><b>Pseudo : {{ app.user.username }}</b></div>
+                            <div><b>Prénom : {{ app.user.firstname }}</b></div>
+                            <div><b>Nom : {{ app.user.lastName }}</b></div>
+                            <div><b>Email: {{ app.user.email }}</b></div>
+                            <span><b></b></span>
+                        </li>
+                    </ul>
+
+                        <a class="btn btn-secondary mt-2" href="{{ path('user_profile_update') }}"> Modifier mon
+                            profil</a>
+                        <a class="btn btn-secondary mt-2" href=""> Modifier mon mot de passe</a>
+                    </div>
+                </div>
+            </div>
+            {% if is_granted('ROLE_SELLER') %}
+            <div class="container mt-5">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-10">
+                        <div id="login-box" class="col-md-12">
+                            <h5 class="card-header bg-light text-black"> Produits en vente de {{ app.user.firstname }} {{ app.user.lastname }}
+                            ({{ app.user.products|length }})</h5>
+                        {% for products in app.user.products %}
+                            <div class="col">
+                                <h5 class="card-title">Titre: {{ product.cuveeDomaine }}</div>
+                        {% endfor %}
+                            <a class="btn btn-secondary mt-2" href="{{ path('user_profile_update') }}"> Consulter mes
+                                produits</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% endblock %}

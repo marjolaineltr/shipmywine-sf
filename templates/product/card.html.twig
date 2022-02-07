@@ -1,0 +1,23 @@
+{% block body %}
+
+    <div class="card">
+        <img src="https://image.freepik.com/free-vector/bottle-wine-drawing_117521-52.jpg"
+             alt="{{ product.area }}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.area }}</h5>
+            <h6>{{ product.appellation }}</h6>
+            <p class="card-text">{{ product.description }}</p>
+            <span class="h6 mt-auto">Avis client : {{ product.rate }}/5 </span>
+            <span class="badge-black ">{{ product.type }}</span>
+        </div>
+        <div class="card-footer">
+            <div class="col">
+                <a href="{{ path('product_detail',{id: product.id}) }}" class="btn btn-sm btn-secondary" style=""> Voir
+                    les détails</a>
+                <span class="h5 mt-auto"> Prix : {{ product.price }} € TTC</span>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

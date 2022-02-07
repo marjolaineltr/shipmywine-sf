@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{company.name}}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-3 mb-9">
+            <h1 class="mt-4 mt-md-0">{{company.name}}</h1>
+            <div class="col-md-4">
+                <img src="https://image.freepik.com/free-vector/bottle-wine-drawing_117521-52.jpg" alt="{{company.name}}" class="card-img-top">
+            </div>
+            <div class="col-md-5">
+                <h2 class="mt-2 mt-md-2">{{company.name}}</h2>
+                <p>{{company.presentation}}</p>
+                <hr>
+                <b>Notation: </b>
+            </div>
+        </div>
+    </div>
+{% endblock %}

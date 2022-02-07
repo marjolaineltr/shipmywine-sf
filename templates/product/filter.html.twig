@@ -1,0 +1,53 @@
+{% block body %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            {{ form_start(form,{attr:{class:'filter'}}) }}
+            <div>
+                <h6>Rechercher</h6>
+                {{ form_row(form.q) }}
+            </div>
+            <div>
+                <h6>Prix minimum</h6>
+                {{ form_row(form.min) }}
+                <h6>Prix maximum</h6>
+                {{ form_row(form.max) }}
+            </div>
+
+                <div>
+                    <vue3-slider v-model="myNumber" color="#FB278D" track-color="#FEFEFE"></vue3-slider>
+                </div>
+
+
+
+
+            <div>
+                <h6>Appellation</h6>
+                {{ form_row(form.appellation) }}
+            </div>
+            <div>
+                <h6>Couleur</h6>
+
+                {{ form_row(form.color) }}
+            </div>
+            <div>
+                <h6>Type</h6>
+                {{ form_row(form.type) }}
+            </div>
+
+            <div style="margin-top: 2rem">
+                <button type="submit" class="btn btn-secondary w-100"> Filtrer</button>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

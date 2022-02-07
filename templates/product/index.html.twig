@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: 60px">
+       <div class="row">
+           <div class="col-md-3">
+               <div class="filter">
+               <h5>Filtre</h5>
+            {% include 'product/filter.html.twig' with {form:form} %}
+               </div>
+           </div>
+           <div class="col-md-9">
+               <h5>Produits</h5>
+               <div class="grid">
+                {% for product in products %}
+                    {% include'product/card.html.twig' with { product:product} only %}
+                {% endfor %}
+               </div>
+               <div style="margin-top: 3rem;">
+                   {{ knp_pagination_render(products) }}
+               </div>
+           </div>
+       </div>
+
+    </div>
+
+{% endblock %}

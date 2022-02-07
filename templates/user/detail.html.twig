@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Modifier le profil
+{% endblock %}
+{% block body %}
+<br>
+<div id="update-profile">
+    <h3 class="text-center text-white pt-5">Bienvenue !</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="update-profile-column" class="col-md-6">
+                <div id="update-profile-box" class="col-md-12">
+                    <h4 class="card-title"> Modifier mes informations personnelles
+                    </h4></div>
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {% if company is defined %}
+                        {{ form_widget(companyForm) }}
+                    {% endif %}
+                    {{form_widget(form) }}
+                    <button type="submit" class="btn btn-secondary" style="margin-top: 2rem">Modifier le profil</button>
+                    {{ form_end(form) }}
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}
